@@ -8,7 +8,7 @@ class woot:
         self.bot = bot
 
     @commands.command()
-    async def \o/(self):
+    async def woo(self):
         """This does stuff!"""
 
         #Your code will go here
