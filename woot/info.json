@@ -1,0 +1,9 @@
+{
+    "AUTHOR" : "Adhoc",
+    "SHORT" : "responds to \o/ with assorted cheers",
+    "DESCRIPTION" : "TL'DR",
+    "DISABLED" : false,
+    "NAME" : "woot",
+    "TAGS" : ["fun", "dumb"],
+    "INSTALL_MSG" : "achievo get: install"
+}
