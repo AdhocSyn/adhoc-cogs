@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+import random
 
 class woot:
     """woot: cheers when a user types \o/"""
@@ -11,8 +12,9 @@ class woot:
     async def woo(self):
         """This does stuff!"""
 
-        #Your code will go here
-        await self.bot.say("Huzzah! \o/")
+        words = ['Huzzah!', 'Woo!', 'Hurrah!']
+        out = random.choice(words)
+        await self.bot.say(out+ " \o/")
 
 def setup(bot):
     bot.add_cog(woot(bot))
