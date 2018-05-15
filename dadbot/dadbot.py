@@ -13,7 +13,7 @@ class dadbot:
         self.settingspath = "data/dadbot/settings.json"
         self.settings = dataIO.load_json(self.settingspath)
 
-     def save_db(self):
+    def save_db(self):
         dataIO.save_json(self.dbpath, self.db)
 
 
