@@ -95,7 +95,7 @@ def check_folders():
 def check_files():
     setp = 'data/dadbot/settings.json'
     if not os.path.isfile(setp):
-        default = {"channels" = []}
+        default = {"channels": []}
         print('Creating default dadbot/settings.json...')
         dataIO.save_json(setp, default)
 
