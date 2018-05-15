@@ -29,18 +29,20 @@ class dadbot:
     @dadbot.command(name="on", pass_context=True, no_pm=True)
     async def _dadbot_on(self, ctx, msg):
         """Activates dadbot in a channel"""
-        if msg in self.settings["channels"]:
+        msg2 = msg.strip("<>#")
+        if msg2 in self.settings["channels"]:
             await self.bot.say("Dadbot already activated in:" + msg)
         else:
-            self.settings["channels"].append(msg)
+            self.settings["channels"].append(msg2)
             dataIO.save_json(self.settingspath, self.settings)
             await self.bot.say("Dadbot activated in: " + msg)
 
     @dadbot.command(name="off", pass_context=True, no_pm=True)
     async def _dadbot_off(self, ctx, channel):
         """Deactivates dadbot in a channel"""
-        if msg in self.settings["channels"]:
-            self.settings["channels"].remove(msg)
+        msg2 = msg.strip("<>#")
+        if msg2 in self.settings["channels"]:
+            self.settings["channels"].remove(msg2)
             dataIO.save_json(self.settingspath, self.settings)
             await self.bot.say("Dadbot deactivated in: " + msg)
         else:
@@ -57,7 +59,7 @@ class dadbot:
         return False
 
     async def on_message(self, message):
-        if message.channel.id not in self.settings["channels"]:
+        if discord.Client(message.channel.id) not in self.settings["channels"]:
             return
         if message.author == self.bot.user and not self.settings.get("bot", False):
             return
