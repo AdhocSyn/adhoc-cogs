@@ -18,7 +18,7 @@ class dadbot:
 
 
     @commands.group(name="dadbot", pass_context=True, no_pm=True )
-    @checks.admin
+    @checks.admin_or_permissions(manage_server=True)
     async def dadbot(self, ctx):
         """Manage dadbot settings"""
 
