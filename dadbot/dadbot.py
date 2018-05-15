@@ -66,8 +66,8 @@ class dadbot:
         try:
             out = ""
             building = False
-            triggers = self.settings["triggers"]
-            punc = self.settings["punctuation"]
+            triggers = ["i'm", "im"]
+            punc = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
             words = message.split(" ")
 
             for word in words:
@@ -95,7 +95,7 @@ def check_folders():
 def check_files():
     setp = 'data/dadbot/settings.json'
     if not os.path.isfile(setp):
-        default = {"channels" = [], "triggers" = ["i'm", "im"], "punctuation" = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''}
+        default = {"channels" = []}
         print('Creating default dadbot/settings.json...')
         dataIO.save_json(setp, default)
 
