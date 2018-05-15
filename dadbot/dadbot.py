@@ -29,22 +29,22 @@ class dadbot:
     @dadbot.command(name="on", pass_context=True, no_pm=True)
     async def _dadbot_on(self, ctx, msg):
         """Activates dadbot in a channel"""
-        if msg.channel.id in self.settings["channels"]:
-            await self.bot.say("Dadbot already activated in:" + msg.channel.id)
+        if msg in self.settings["channels"]:
+            await self.bot.say("Dadbot already activated in:" + msg)
         else:
-            self.settings["channels"].append(msg.channel.id)
+            self.settings["channels"].append(msg)
             dataIO.save_json(self.settingspath, self.settings)
-            await self.bot.say("Dadbot activated in: " + msg.channel.id)
+            await self.bot.say("Dadbot activated in: " + msg)
 
     @dadbot.command(name="off", pass_context=True, no_pm=True)
     async def _dadbot_off(self, ctx, channel):
         """Deactivates dadbot in a channel"""
-        if msg.channel.id in self.settings["channels"]:
-            self.settings["channels"].remove(msg.channel.id)
+        if msg in self.settings["channels"]:
+            self.settings["channels"].remove(msg)
             dataIO.save_json(self.settingspath, self.settings)
-            await self.bot.say("Dadbot deactivated in: " + msg.channel.id)
+            await self.bot.say("Dadbot deactivated in: " + msg)
         else:
-            await self.bot.say("Dadbot was not active in:" + msg.channel.id)
+            await self.bot.say("Dadbot was not active in:" + msg)
 
     def is_command(self, msg):
         if callable(self.bot.command_prefix):
