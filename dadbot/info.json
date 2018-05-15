@@ -1,9 +1,10 @@
 {
-    "AUTHOR" : "Adhoc",
-    "INSTALL_MSG" : "Thanks for installing this cog.",
     "NAME" : "Dadbot",
+    "AUTHOR" : "Adhoc",
     "SHORT" : "Automatically makes dad jokes!",
+    "DESCRIPTION" : "Not much else to say.",
+    "INSTALL_MSG" : "Thanks for installing this cog.",
+    "REQUIREMENTS" : [],
     "TAGS" : ["Utilities"],
-    "DESCRIPTION" : "Not much else to say."
-
+    "DISABLED" : false
 }

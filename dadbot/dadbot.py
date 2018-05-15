@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import asyncio
+from __main__ import send_cmd_help
 from cogs.utils import checks
 from cogs.utils.dataIO import dataIO
 import os
@@ -65,8 +66,8 @@ class dadbot:
         try:
             out = ""
             building = False
-            triggers = ["i'm", "im"]
-            punc = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+            triggers = self.settings["triggers"]
+            punc = self.settings["punctuation"]
             words = message.split(" ")
 
             for word in words:
@@ -94,7 +95,7 @@ def check_folders():
 def check_files():
     setp = 'data/dadbot/settings.json'
     if not os.path.isfile(setp):
-        default = {}
+        default = {"channels" = [], "triggers" = ["i'm", "im"], "punctuation" = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''}
         print('Creating default dadbot/settings.json...')
         dataIO.save_json(setp, default)
 
